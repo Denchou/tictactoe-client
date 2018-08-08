@@ -13,9 +13,11 @@ $(() => {
 // game logic
 
 let player = 'X'
+// player X begins first.
 // board is array of 9 objects
 
 const checkRow = function (board) {
+  // check to see if there's a row winning combination
   if (board.box[0] !== '' &&
       (board.box[0] === board.box[1] &&
       board.box[0] === board.box[2])) {
@@ -32,6 +34,7 @@ const checkRow = function (board) {
   return false
 }
 const checkCol = function (board) {
+  // check to see if there's a column winning combination
   if (board.box[0] !== '' &&
       (board.box[0] === board.box[3] &&
       board.box[0] === board.box[6])) {
@@ -48,6 +51,7 @@ const checkCol = function (board) {
   return false
 }
 const checkDia = function (board) {
+  // check to see if there's a diagonal winning combination
   if (board.box[0] !== '' &&
       (board.box[0] === board.box[4] &&
       board.box[0] === board.box[8])) {
@@ -61,6 +65,7 @@ const checkDia = function (board) {
 }
 
 const checkWin = function (board) {
+  // check to see if there is a winning combination
   if (checkRow(board)) {
     console.log('Win by Row')
     return true
@@ -73,19 +78,37 @@ const checkWin = function (board) {
   }
   return false
 }
+
+const checkDraw = function (board) {
+  // check to see if the game will end in a draw
+  let count = 0
+  for (let i = 0; i < board.box.length; i++) {
+    if (board.box[i] === '') {
+      count++
+    }
+  }
+  if (count < 1) {
+    console.log(count)
+    return true
+  }
+  console.log(count)
+  return false
+}
 // board is array of 9 objects
 const gameBoard = function (board, player) {
   if (checkWin(board)) {
     console.log('player', player, 'wins!')
+  } else if (checkDraw(board)) {
+    console.log('The game is a tie')
   } else {
-    console.log('LOSE', player)
+    console.log('Game not complete')
   }
   console.log('board is', board)
 }
 const sample = {
   box: ['X', 'X', 'O',
-    'X', 'X', 'O',
-    'O', 'O', 'X']
+        'X', 'X', 'O',
+        'O', 'O', 'O']
 }
 
 gameBoard(sample, player)
