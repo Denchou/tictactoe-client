@@ -6,9 +6,7 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
-$(() => {
-  // your JS code goes here
-})
+
 
 // game logic
 
@@ -88,10 +86,8 @@ const checkDraw = function (board) {
     }
   }
   if (count < 1) {
-    console.log(count)
     return true
   }
-  console.log(count)
   return false
 }
 // board is array of 9 objects
@@ -105,10 +101,8 @@ const gameBoard = function (board, player) {
   }
   console.log('board is', board)
 }
-const sample = {
-  box: ['X', 'X', 'O',
-        'X', 'X', 'O',
-        'O', 'O', 'O']
-}
-
-gameBoard(sample, player)
+// const playBox ()
+// $(() => {
+//   // your JS code goes here
+//   $('#0').on('click', playBox)
+// })
