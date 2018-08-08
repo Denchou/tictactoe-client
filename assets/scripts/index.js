@@ -47,16 +47,31 @@ const checkCol = function (board) {
   }
   return false
 }
+const checkDia = function (board) {
+  if (board.box[0] !== '' &&
+      (board.box[0] === board.box[4] &&
+      board.box[0] === board.box[8])) {
+    return true
+  } else if (board.box[2] !== '' &&
+              (board.box[2] === board.box[4] &&
+               board.box[2] === board.box[6])) {
+    return true
+  }
+  return false
+}
 
 const checkWin = function (board) {
   if (checkRow(board)) {
     console.log('Win by Row')
     return true
-  }
-  if (checkCol(board)) {
-    console.log('Win by Col')
+  } else if (checkCol(board)) {
+    console.log('Win by Column')
+    return true
+  } else if (checkDia(board)) {
+    console.log('Win by Diagonally')
     return true
   }
+  return false
 }
 // board is array of 9 objects
 const gameBoard = function (board, player) {
@@ -70,7 +85,7 @@ const gameBoard = function (board, player) {
 const sample = {
   box: ['X', 'X', 'O',
     'X', 'X', 'O',
-    'O', 'X', 'X']
+    'O', 'O', 'X']
 }
 
 gameBoard(sample, player)
