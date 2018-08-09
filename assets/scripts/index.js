@@ -5,64 +5,62 @@ const auth = require('./auth')
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
-
-
-
 // game logic
 
 let player = 'X'
+const board = ['', '', '', '', '', '', '', '', '']
 // player X begins first.
 // board is array of 9 objects
 
-const checkRow = function (board) {
+const checkRow = function () {
   // check to see if there's a row winning combination
-  if (board.box[0] !== '' &&
-      (board.box[0] === board.box[1] &&
-      board.box[0] === board.box[2])) {
+  if (board[0] !== '' &&
+      (board[0] === board[1] &&
+      board[0] === board[2])) {
     return true
-  } else if (board.box[3] !== '' &&
-          (board.box[3] === board.box[4] &&
-          board.box[3] === board.box[5])) {
+  } else if (board[3] !== '' &&
+          (board[3] === board[4] &&
+          board[3] === board[5])) {
     return true
-  } else if (board.box[6] !== '' &&
-              (board.box[6] === board.box[7] &&
-               board.box[6] === board.box[8])) {
+  } else if (board[6] !== '' &&
+              (board[6] === board[7] &&
+               board[6] === board[8])) {
     return true
   }
   return false
 }
-const checkCol = function (board) {
+const checkCol = function () {
   // check to see if there's a column winning combination
-  if (board.box[0] !== '' &&
-      (board.box[0] === board.box[3] &&
-      board.box[0] === board.box[6])) {
+  if (board[0] !== '' &&
+      (board[0] === board[3] &&
+      board[0] === board[6])) {
     return true
-  } else if (board.box[1] !== '' &&
-          (board.box[1] === board.box[4] &&
-          board.box[1] === board.box[7])) {
+  } else if (board[1] !== '' &&
+          (board[1] === board[4] &&
+          board[1] === board[7])) {
     return true
-  } else if (board.box[2] !== '' &&
-              (board.box[2] === board.box[5] &&
-               board.box[2] === board.box[8])) {
+  } else if (board[2] !== '' &&
+              (board[2] === board[5] &&
+               board[2] === board[8])) {
     return true
   }
   return false
 }
-const checkDia = function (board) {
+const checkDia = function () {
   // check to see if there's a diagonal winning combination
-  if (board.box[0] !== '' &&
-      (board.box[0] === board.box[4] &&
-      board.box[0] === board.box[8])) {
+  if (board[0] !== '' &&
+      (board[0] === board[4] &&
+      board[0] === board[8])) {
     return true
-  } else if (board.box[2] !== '' &&
-              (board.box[2] === board.box[4] &&
-               board.box[2] === board.box[6])) {
+  } else if (board[2] !== '' &&
+              (board[2] === board[4] &&
+               board[2] === board[6])) {
     return true
   }
   return false
 }
 
-const checkWin = function (board) {
+const checkWin = function () {
   // check to see if there is a winning combination
   if (checkRow(board)) {
     console.log('Win by Row')
@@ -77,11 +75,11 @@ const checkWin = function (board) {
   return false
 }
 
-const checkDraw = function (board) {
+const checkDraw = function () {
   // check to see if the game will end in a draw
   let count = 0
-  for (let i = 0; i < board.box.length; i++) {
-    if (board.box[i] === '') {
+  for (let i = 0; i < board.length; i++) {
+    if (board[i] === '') {
       count++
     }
   }
@@ -91,42 +89,51 @@ const checkDraw = function (board) {
   return false
 }
 // board is array of 9 objects
-const gameBoard = function (board, player) {
-  console.log('board is', board, 'player is ', player, 'id is ', this.id)
+const gameBoard = function (event) {
+  console.log('board is', board, 'player is ', player, 'id is ')
   if (checkWin(board)) {
     console.log('player', player, 'wins!')
   } else if (checkDraw(board)) {
     console.log('The game is a tie')
-  } else {
-    playGame()
+  } else if (player === 'X' && event.target.innerHTML === '') {
+    event.target.innerHTML = player
+    board[event.target.id] = player
+    player = 'O'
+  } else if (player === 'O' && event.target.innerHTML === '') {
+    event.target.innerHTML = player
+    board[event.target.id] = player
+    player = 'X'
   }
 }
+// const playGame = function (event) {
+//   if (player === 'X' && (event.target.innerHTML !== 'O' && event.target.innerHTML !== 'X')) {
+//     $(event.target).html('X')
+//   } else {
+//     $(event.target).html('O')
+//   }
+// }
 
-function playGame (event) {
-  $('')
-}
+// const test = function (event) {
+//   console.log(event)
+//   console.log(event.target)
+//   console.log(event.target.id)
+//
+//   $(event.target).html(`${event.target.id}`)
+// }
 
-const test = function (event) {
-  console.log(event)
-  console.log(event.target)
-  console.log(event.target.id)
-
-  $(event.target).html(`${event.target.id}`)
-}
-const newBoard = []
 $(() => {
   // your JS code goes here
   $('#sign-out').hide()
   $('#change-password').hide()
-  $('#0').on('click', test)
-  $('#1').on('click', () => $('#1').html('CLICK'))
-  $('#2').on('click', () => $('#2').html('CLICK'))
-  $('#3').on('click', () => $('#3').html('CLICK'))
-  $('#4').on('click', () => $('#4').html('CLICK'))
-  $('#5').on('click', () => $('#5').html('CLICK'))
-  $('#6').on('click', () => $('#6').html('CLICK'))
-  $('#7').on('click', () => $('#7').html('CLICK'))
-  $('#8').on('click', () => $('#8').html('CLICK'))
+  $('#0').on('click', gameBoard)
+  $('#1').on('click', gameBoard)
+  $('#2').on('click', gameBoard)
+  $('#3').on('click', gameBoard)
+  $('#4').on('click', gameBoard)
+  $('#5').on('click', gameBoard)
+  $('#6').on('click', gameBoard)
+  $('#7').on('click', gameBoard)
+  $('#8').on('click', gameBoard)
   $('#sign-up').on('submit', auth.onSignUp)
   $('#sign-in').on('submit', auth.onSignIn)
   $('#sign-out').on('submit', auth.onSignOut)
