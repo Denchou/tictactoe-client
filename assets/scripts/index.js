@@ -104,6 +104,7 @@ const gameBoard = function (board, player) {
 // const playBox ()
 $(() => {
   // your JS code goes here
+  $('#sign-out').hide()
   $('#0').on('click', () => $('#0').html('CLICK'))
   $('#1').on('click', () => $('#1').html('CLICK'))
   $('#2').on('click', () => $('#2').html('CLICK'))
@@ -115,4 +116,5 @@ $(() => {
   $('#8').on('click', () => $('#8').html('CLICK'))
   $('#sign-up').on('submit', auth.signUp)
   $('#sign-in').on('submit', auth.signIn)
+  $('#sign-out').on('submit', auth.signOut)
 })
