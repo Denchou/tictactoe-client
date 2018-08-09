@@ -1,5 +1,5 @@
 'use strict'
-
+const auth = require('./auth')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -102,7 +102,16 @@ const gameBoard = function (board, player) {
   console.log('board is', board)
 }
 // const playBox ()
-// $(() => {
-//   // your JS code goes here
-//   $('#0').on('click', playBox)
-// })
+$(() => {
+  // your JS code goes here
+  $('#0').on('click', () => $('#0').html('CLICK'))
+  $('#1').on('click', () => $('#1').html('CLICK'))
+  $('#2').on('click', () => $('#2').html('CLICK'))
+  $('#3').on('click', () => $('#3').html('CLICK'))
+  $('#4').on('click', () => $('#4').html('CLICK'))
+  $('#5').on('click', () => $('#5').html('CLICK'))
+  $('#6').on('click', () => $('#6').html('CLICK'))
+  $('#7').on('click', () => $('#7').html('CLICK'))
+  $('#8').on('click', () => $('#8').html('CLICK'))
+  $('#sign-up').on('submit', auth.signUp)
+})

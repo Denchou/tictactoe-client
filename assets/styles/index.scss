@@ -24,10 +24,11 @@ body{
 nav {
   display: flex;
   justify-content: flex-end;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 h1 {
-flex-grow: 1;
-flex-wrap: wrap;
+  margin-right: auto;
+  flex: none;
 
 }
