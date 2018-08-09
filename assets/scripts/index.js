@@ -114,4 +114,5 @@ $(() => {
   $('#7').on('click', () => $('#7').html('CLICK'))
   $('#8').on('click', () => $('#8').html('CLICK'))
   $('#sign-up').on('submit', auth.signUp)
+  $('#sign-in').on('submit', auth.signIn)
 })
