@@ -92,21 +92,33 @@ const checkDraw = function (board) {
 }
 // board is array of 9 objects
 const gameBoard = function (board, player) {
+  console.log('board is', board, 'player is ', player, 'id is ', this.id)
   if (checkWin(board)) {
     console.log('player', player, 'wins!')
   } else if (checkDraw(board)) {
     console.log('The game is a tie')
   } else {
-    console.log('Game not complete')
+    playGame()
   }
-  console.log('board is', board)
 }
-// const playBox ()
+
+function playGame (event) {
+  $('')
+}
+
+const test = function (event) {
+  console.log(event)
+  console.log(event.target)
+  console.log(event.target.id)
+
+  $(event.target).html(`${event.target.id}`)
+}
+const newBoard = []
 $(() => {
   // your JS code goes here
   $('#sign-out').hide()
   $('#change-password').hide()
-  $('#0').on('click', () => $('#0').html('CLICK'))
+  $('#0').on('click', test)
   $('#1').on('click', () => $('#1').html('CLICK'))
   $('#2').on('click', () => $('#2').html('CLICK'))
   $('#3').on('click', () => $('#3').html('CLICK'))
