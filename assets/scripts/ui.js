@@ -1,5 +1,4 @@
 const store = require('./store')
-const api = require('./api')
 const onSignUpSuccess = function (response) {
   $('#sign-up').trigger('reset')
   $('#message').html('SIGN UP SUCCESS. SIGN IN WITH YOUR USER NAME AND PASSWORD TO PLAY')
@@ -17,6 +16,7 @@ const onSignInSuccess = function (response) {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#sign-out').show()
+  $('#change-password').show()
   store.user = response.user
 }
 const onSignInFailure = function () {
@@ -28,9 +28,18 @@ const onSignOutSuccess = function () {
   $('#sign-in').show()
   $('#sign-up').show()
   $('#sign-out').hide()
+  $('#change-password').hide()
 }
 const onSignOutFailure = function () {
   $('#message').html('SOMETHING WENT HORRIBLY WRONG!!!')
+}
+const onChangePasswordSuccess = function () {
+  $('#change-password').trigger('reset')
+  $('#message').html('PASSWORD SUCCESSFULLY CHANGED')
+}
+const onChangePasswordFailure = function () {
+  $('#change-password').trigger('reset')
+  $('#message').html('PASSWORD SUCCESSFULLY FAILED')
 }
 module.exports = {
   onSignUpSuccess,
@@ -38,5 +47,7 @@ module.exports = {
   onSignInSuccess,
   onSignInFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onChangePasswordSuccess,
+  onChangePasswordFailure
 }

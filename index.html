@@ -22,7 +22,7 @@
           <input class='form-control' type='email' name ="credentials[email]" placeholder="Email">
           <input class='form-control' type='password' name ="credentials[password]" placeholder="Password">
           <input class='form-control' type='password' name ='credentials[password_confirmation]' placeholder="Confirm Password">
-          <button type="submit" class='btn blue'> Sign Up</button>
+          <button type="submit" class='btn'> Sign Up</button>
         </div>
         </fieldset>
       </form>
@@ -30,18 +30,26 @@
       <fieldset>
         <input class='form-control' type='email' name ="credentials[email]" placeholder="Email">
         <input class='form-control' type='password' name ="credentials[password]" placeholder="Password">
-        <button type="submit" class='btn blue'> Sign In</button>
+        <button type="submit" class='btn'> Sign In</button>
       </fieldset>
     </form>
     <form id='sign-out' class="border container col-md-3">
     <fieldset>
-      <button type="submit" class='btn blue'> Sign Out</button>
+      <button type="submit" class='btn'> Sign Out</button>
     </fieldset>
   </form>
-    <br>
-    <div id='message'></div>
+  <form id='change-password' class="border container col-md-3">
+  <fieldset>
+    <div class='input-group'>
+    <input class='form-control' type='password' name ="passwords[old]" placeholder="Old Password">
+    <input class='form-control' type='password' name ='passwords[new]' placeholder="New Password">
+    <button type="submit" class='btn'>Change Password</button>
+  </div>
+  </fieldset>
+</form>
 
-      </nav>
+    </nav>
+      <div id='message'></div>
       <section class='row'>
         <div id ='0'class='col-md-4 box'></div>
         <div id ='1'class='col-md-4 box'></div>

@@ -105,6 +105,7 @@ const gameBoard = function (board, player) {
 $(() => {
   // your JS code goes here
   $('#sign-out').hide()
+  $('#change-password').hide()
   $('#0').on('click', () => $('#0').html('CLICK'))
   $('#1').on('click', () => $('#1').html('CLICK'))
   $('#2').on('click', () => $('#2').html('CLICK'))
@@ -114,7 +115,8 @@ $(() => {
   $('#6').on('click', () => $('#6').html('CLICK'))
   $('#7').on('click', () => $('#7').html('CLICK'))
   $('#8').on('click', () => $('#8').html('CLICK'))
-  $('#sign-up').on('submit', auth.signUp)
-  $('#sign-in').on('submit', auth.signIn)
-  $('#sign-out').on('submit', auth.signOut)
+  $('#sign-up').on('submit', auth.onSignUp)
+  $('#sign-in').on('submit', auth.onSignIn)
+  $('#sign-out').on('submit', auth.onSignOut)
+  $('#change-password').on('submit', auth.onChangePassword)
 })
