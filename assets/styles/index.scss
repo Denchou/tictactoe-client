@@ -17,9 +17,9 @@ body{
 }
 .border {
   border: 3px solid #000;
-  margin: 5px 20px;
-  padding: 10px;
-  display: box;
+  background-color: green;
+  display: flex;
+  justify-content: center;
 }
 nav {
   display: flex;

@@ -17,6 +17,7 @@ const onSignInSuccess = function (response) {
   $('#sign-in').hide()
   $('#sign-out').show()
   $('#change-password').show()
+  $('#new-game').show()
   store.user = response.user
 }
 const onSignInFailure = function () {

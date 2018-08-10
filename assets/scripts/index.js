@@ -1,5 +1,6 @@
 'use strict'
 const auth = require('./auth')
+const gameEvent = require('./gameEvent')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -69,7 +70,7 @@ const checkDraw = function () {
       count++
     }
   }
-  if (count <= 1) {
+  if (count === 0) {
     return true
   }
   return false
@@ -138,6 +139,8 @@ $(() => {
   // your JS code goes here
   $('#sign-out').hide()
   $('#change-password').hide()
+  $('#gameboard').hide()
+  $('#new-game').hide()
   $('#0').on('click', gameBoard)
   $('#1').on('click', gameBoard)
   $('#2').on('click', gameBoard)
@@ -151,4 +154,5 @@ $(() => {
   $('#sign-in').on('submit', auth.onSignIn)
   $('#sign-out').on('submit', auth.onSignOut)
   $('#change-password').on('submit', auth.onChangePassword)
+  $('#new-game').on('submit', gameEvent.onNewGame)
 })
