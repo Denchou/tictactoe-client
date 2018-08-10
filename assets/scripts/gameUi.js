@@ -12,7 +12,16 @@ const onNewGameSuccess = function (response) {
   store.tag = 'X'
   console.log('store board and tag is', store.board, store.tag)
 }
+const onPlaySuccess = function (response) {
+  $('#message').html('Player ', store.tag, ' made a move!')
+}
+const onPlayFailure = function (response) {
+  $('#message').html('FUBAR FUBAR FUBAR')
+}
+
 module.exports = {
   onNewGameSuccess,
-  onNewGameFailure
+  onNewGameFailure,
+  onPlaySuccess,
+  onPlayFailure
 }
