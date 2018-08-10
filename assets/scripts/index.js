@@ -9,6 +9,7 @@ const auth = require('./auth')
 
 let player = 'X'
 const board = ['', '', '', '', '', '', '', '', '']
+let winState = false
 // player X begins first.
 // board is array of 9 objects
 
@@ -60,21 +61,6 @@ const checkDia = function () {
   return false
 }
 
-const checkWin = function () {
-  // check to see if there is a winning combination
-  if (checkRow(board)) {
-    console.log('Win by Row')
-    return true
-  } else if (checkCol(board)) {
-    console.log('Win by Column')
-    return true
-  } else if (checkDia(board)) {
-    console.log('Win by Diagonally')
-    return true
-  }
-  return false
-}
-
 const checkDraw = function () {
   // check to see if the game will end in a draw
   let count = 0
@@ -83,27 +69,54 @@ const checkDraw = function () {
       count++
     }
   }
-  if (count < 1) {
+  if (count <= 1) {
     return true
   }
   return false
 }
+
+const checkWin = function () {
+  // check to see if there is a winning combination
+  if (winState) {
+    $('#message').html('Game is over, please start a new game.')
+  } else if (checkRow(board)) {
+    $('#message').html(player + ' gets a Row win!')
+    return true
+  } else if (checkCol(board)) {
+    $('#message').html(player + ' gets a Col win!')
+    return true
+  } else if (checkDia(board)) {
+    $('#message').html(player + ' gets a Diagonal win!')
+    return true
+  } else if (checkDraw(board)) {
+    $('#message').html('You tied trying!')
+  }
+  return false
+}
+
+const switchPlayer = function () {
+  if (player === 'X') {
+    player = 'O'
+  } else {
+    player = 'X'
+  }
+}
 // board is array of 9 objects
 const gameBoard = function (event) {
-  console.log('board is', board, 'player is ', player, 'id is ')
-  if (checkWin(board)) {
-    console.log('player', player, 'wins!')
-  } else if (checkDraw(board)) {
-    console.log('The game is a tie')
-  } else if (player === 'X' && event.target.innerHTML === '') {
+  if (player === 'X' && event.target.innerHTML === '') {
     event.target.innerHTML = player
     board[event.target.id] = player
-    player = 'O'
   } else if (player === 'O' && event.target.innerHTML === '') {
     event.target.innerHTML = player
     board[event.target.id] = player
-    player = 'X'
   }
+  console.log('board is', board, 'player is ', player, 'id is ')
+  if (checkWin(board)) {
+    console.log('player', player, 'wins!')
+    winState = true
+    console.log(board)
+  }
+  switchPlayer()
 }
 // const playGame = function (event) {
 //   if (player === 'X' && (event.target.innerHTML !== 'O' && event.target.innerHTML !== 'X')) {
