@@ -30,6 +30,8 @@ const onSignOutSuccess = function () {
   $('#sign-up').show()
   $('#sign-out').hide()
   $('#change-password').hide()
+  $('#new-game').hide()
+  $('#gameboard').hide()
 }
 const onSignOutFailure = function () {
   $('#message').html('SOMETHING WENT HORRIBLY WRONG!!!')
