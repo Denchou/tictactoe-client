@@ -1,7 +1,7 @@
 'use strict'
 const auth = require('./auth')
 const gameEvent = require('./gameEvent')
-const gameEngine = require('./gameEngine')
+const gameHandler = require('./gameHandler')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -31,7 +31,7 @@ $(() => {
   $('#change-password').hide()
   $('#gameboard').hide()
   $('#new-game').hide()
-  gameEngine.gameHandlers()
+  gameHandler.gameHandler()
   $('#sign-up').on('submit', auth.onSignUp)
   $('#sign-in').on('submit', auth.onSignIn)
   $('#sign-out').on('submit', auth.onSignOut)

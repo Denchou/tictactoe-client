@@ -11,7 +11,7 @@ const onNewGame = function (event) {
 const onPlay = function (event) {
   event.preventDefault()
   gameApi.play(event)
-    .then(gameUi.onPlaySuccess)
+    .then(gameUi.onPlaySuccess(event))
     .catch(gameUi.onPlayFailure)
 }
 module.exports = {

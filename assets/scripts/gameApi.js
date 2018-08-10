@@ -13,7 +13,7 @@ const newGame = function (data) {
 }
 
 const play = function (event) {
-  console.log('play  data is ', event)
+  // console.log('event target id is', event.target.id, 'over is', store.board.game.over, store.tag)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.board.game.id,
     method: 'PATCH',
@@ -24,7 +24,7 @@ const play = function (event) {
       'game': {
         'cell': {
           'index': event.target.id,
-          'value': event.target.innerHTML
+          'value': store.tag
         },
         'over': store.board.game.over
       }

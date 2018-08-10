@@ -1,4 +1,5 @@
 const store = require('./store')
+const gameLogic = require('./gameLogic')
 
 const onNewGameFailure = function (response) {
   $('#message').html('New Game FAILED')
@@ -12,10 +13,11 @@ const onNewGameSuccess = function (response) {
   store.tag = 'X'
   console.log('store board and tag is', store.board, store.tag)
 }
-const onPlaySuccess = function (response) {
-  $('#message').html('Player ', store.tag, ' made a move!')
+const onPlaySuccess = function (event) {
+  $('#message').html('Player ' + store.tag + ' made a move!')
+  gameLogic.gameBoard(event)
 }
-const onPlayFailure = function (response) {
+const onPlayFailure = function () {
   $('#message').html('FUBAR FUBAR FUBAR')
 }
 
