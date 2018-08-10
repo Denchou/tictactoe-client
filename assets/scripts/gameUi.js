@@ -6,7 +6,10 @@ const onNewGameFailure = function (response) {
 }
 const onNewGameSuccess = function (response) {
   $('#message').html('New Game Success')
-  console.log(response)
+  $('#gameboard').show()
+  store.board = response
+  store.tag = 'X'
+  console.log('store board and tag is', store.board, store.tag)
 }
 module.exports = {
   onNewGameSuccess,
