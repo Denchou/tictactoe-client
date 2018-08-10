@@ -10,7 +10,9 @@ const onNewGame = function (event) {
 }
 const onPlay = function (event) {
   event.preventDefault()
-  if (!store.board.game.over) {
+  if (!store.board.game.over && event.target.innerHTML !== '') {
+    $('#message').html('Try again, that box is occupied!')
+  } else if (!store.board.game.over) {
     gameApi.play(event)
       .then(gameUi.onPlaySuccess(event))
       .catch(gameUi.onPlayFailure)

@@ -1,18 +1,18 @@
 const store = require('./store')
 const onSignUpSuccess = function (response) {
   $('#sign-up').trigger('reset')
-  $('#message').html('SIGN UP SUCCESS. SIGN IN WITH YOUR USER NAME AND PASSWORD TO PLAY')
+  $('#message').html('ACCOUNT SUCCESSFULLY CREATED! PLEASE SIGN IN TO PLAY!')
   // $('#sign-up').hide()
   // $('#sign-in').hide()
   // $('#sign-out').show()
 }
 const onSignUpFailure = function () {
   $('#sign-up').trigger('reset')
-  $('#message').html('SIGN UP FAILED')
+  $('#message').html('FAILED TO SIGN UP. EITHER YOU ALREADY HAVE AN ACCOUNT OR YOUR PASSWORD DOES NOT MATCH YOUR CONFIRMATION PASSWORD.')
 }
 const onSignInSuccess = function (response) {
   $('#sign-in').trigger('reset')
-  $('#message').html('SIGN IN SUCCESS')
+  $('#message').html('WELCOME! CLICK ON START NEW GAME TO PLAY TIC-TAC-TOE')
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#sign-out').show()
@@ -22,10 +22,10 @@ const onSignInSuccess = function (response) {
 }
 const onSignInFailure = function () {
   $('#sign-in').trigger('reset')
-  $('#message').html('SIGN IN FAILED')
+  $('#message').html('SIGN IN FAILED. PLEASE CHECK YOUR USER ID OR PASSWORD.')
 }
 const onSignOutSuccess = function () {
-  $('#message').html('SUCCESSFULLY SIGNED OUT')
+  $('#message').html('GOODBYE!')
   $('#sign-in').show()
   $('#sign-up').show()
   $('#sign-out').hide()
@@ -34,7 +34,8 @@ const onSignOutSuccess = function () {
   $('#gameboard').hide()
 }
 const onSignOutFailure = function () {
-  $('#message').html('SOMETHING WENT HORRIBLY WRONG!!!')
+  $('#message').html('SOMEONE ELSE IS LOGGED INTO YOUR ACCOUNT. SIGN BACK IN TO KICK THEM OFF!')
+  $('#sign-in').show()
 }
 const onChangePasswordSuccess = function () {
   $('#change-password').trigger('reset')
@@ -42,7 +43,7 @@ const onChangePasswordSuccess = function () {
 }
 const onChangePasswordFailure = function () {
   $('#change-password').trigger('reset')
-  $('#message').html('PASSWORD SUCCESSFULLY FAILED')
+  $('#message').html('PASSWORD CHANGE FAILED. PLEASE CHECK YOUR OLD PASSWORD AND TRY AGAIN.')
 }
 module.exports = {
   onSignUpSuccess,
