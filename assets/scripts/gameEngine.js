@@ -73,13 +73,13 @@ const checkWin = function () {
   if (winState) {
     $('#message').html('Game is over, please start a new game.')
   } else if (checkRow(board)) {
-    $('#message').html('Player' + store.tag + ' gets a Row win!')
+    $('#message').html('Player ' + store.tag + ' gets a Row win!')
     return true
   } else if (checkCol(board)) {
-    $('#message').html('Player' + store.tag + ' gets a Column Win!')
+    $('#message').html('Player ' + store.tag + ' gets a Column Win!')
     return true
   } else if (checkDia(board)) {
-    $('#message').html('Player' + store.tag + ' gets a Diagonal win!')
+    $('#message').html('Player ' + store.tag + ' gets a Diagonal win!')
     return true
   } else if (checkDraw(board)) {
     $('#message').html('You tied trying!')
@@ -98,7 +98,10 @@ const switchPlayer = function () {
 const gameBoard = function (event) {
   const board = store.board.game.cells
   const player = store.board.game.player_x.email
-  if (store.tag === 'X' && event.target.innerHTML === '') {
+  const winState = store.board.game.over
+  if (winState) {
+    $('#message').html('The game is over')
+  } else if (store.tag === 'X' && event.target.innerHTML === '') {
     event.target.innerHTML = store.tag
     board[event.target.id] = store.tag
   } else if (event.target.innerHTML === '') {

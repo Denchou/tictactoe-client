@@ -6,6 +6,7 @@ const onNewGameFailure = function (response) {
 }
 const onNewGameSuccess = function (response) {
   $('#message').html('New Game Success')
+  $('.box').empty()
   $('#gameboard').show()
   store.board = response
   store.tag = 'X'
