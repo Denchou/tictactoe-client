@@ -18,12 +18,21 @@ const onPlaySuccess = function (event) {
   gameLogic.gameBoard(event)
 }
 const onPlayFailure = function () {
-  $('#message').html('FUBAR FUBAR FUBAR')
+  $('#message').html('Something went wrong with the game, please refresh your browser.')
+}
+const onGameStatsSuccess = function (stats) {
+  $('#message').html('<li>A total of ' + stats.games.length + ' have been played.</li>')
+  console.log(stats.games)
+}
+const onGameStatsFailure = function () {
+  $('#message').html('Something went wrong with the game, please refresh your browser.')
 }
 
 module.exports = {
   onNewGameSuccess,
   onNewGameFailure,
   onPlaySuccess,
-  onPlayFailure
+  onPlayFailure,
+  onGameStatsSuccess,
+  onGameStatsFailure
 }

@@ -12,6 +12,7 @@ $(() => {
   $('#change-password').hide()
   $('#gameboard').hide()
   $('#new-game').hide()
+  $('#game-stats').hide()
   gameHandler.gameHandler()
   userHandler.userHandler()
 })

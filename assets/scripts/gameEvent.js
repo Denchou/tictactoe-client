@@ -17,10 +17,17 @@ const onPlay = function (event) {
       .then(gameUi.onPlaySuccess(event))
       .catch(gameUi.onPlayFailure)
   } else {
-    $('#message').html('The game is over, please select Start New Game to play again.')
+    $('#message').html('GAME OVER MAN!')
   }
+}
+const onGameStats = function (event) {
+  event.preventDefault()
+  gameApi.gameStats()
+    .then(gameUi.onGameStatsSuccess)
+    .catch(gameUi.onGameStatsFailure)
 }
 module.exports = {
   onNewGame,
-  onPlay
+  onPlay,
+  onGameStats
 }

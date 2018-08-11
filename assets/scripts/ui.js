@@ -18,6 +18,7 @@ const onSignInSuccess = function (response) {
   $('#sign-out').show()
   $('#change-password').show()
   $('#new-game').show()
+  $('#game-stats').show()
   store.user = response.user
 }
 const onSignInFailure = function () {
@@ -32,6 +33,7 @@ const onSignOutSuccess = function () {
   $('#change-password').hide()
   $('#new-game').hide()
   $('#gameboard').hide()
+  $('#game-stats').hide()
 }
 const onSignOutFailure = function () {
   $('#message').html('SOMEONE ELSE IS LOGGED INTO YOUR ACCOUNT. SIGN BACK IN TO KICK THEM OFF!')

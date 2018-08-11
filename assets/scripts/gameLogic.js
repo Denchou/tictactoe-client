@@ -1,4 +1,5 @@
 const store = require('./store')
+const gameApi = require('./gameApi')
 
 const checkRow = function () {
   // check to see if there's a row winning combination
@@ -110,9 +111,8 @@ const gameBoard = function (event) {
   console.log('board is', board, 'player is ', player, 'id is ')
 
   if (checkWin()) {
-    console.log('player', player, 'wins!')
     store.board.game.over = true
-    console.log(board)
+    gameApi.play(event)
   }
   switchPlayer()
 }

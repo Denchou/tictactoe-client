@@ -31,8 +31,18 @@ const play = function (event) {
     }
   })
 }
+const gameStats = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   newGame,
-  play
+  play,
+  gameStats
 }
