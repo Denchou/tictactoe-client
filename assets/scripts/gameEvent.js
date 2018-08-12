@@ -17,7 +17,7 @@ const onPlay = function (event) {
       .then(gameUi.onPlaySuccess(event))
       .catch(gameUi.onPlayFailure)
   } else {
-    $('#message').html('GAME OVER MAN!')
+    $('#message').html('The game is over. In order to play again, please click Start New Game.')
   }
 }
 const onGameStats = function (event) {

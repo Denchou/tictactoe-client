@@ -66,23 +66,25 @@ const checkDraw = function () {
   return false
 }
 
-const checkWin = function () {
+const checkOver = function () {
   // check to see if there is a winning combination
+  // If a player wins or draw, returns true
   const board = store.board.game.cells
-  const winState = store.board.game.over
-  if (winState) {
+  const isOver = store.board.game.over
+  if (isOver) {
     $('#message').html('Game is over, please start a new game.')
   } else if (checkRow(board)) {
-    $('#message').html('Player ' + store.tag + ' gets a Row win!')
+    $('#message').html('Player ' + store.tag + ' wins by getting 3 in a Row!')
     return true
   } else if (checkCol(board)) {
-    $('#message').html('Player ' + store.tag + ' gets a Column Win!')
+    $('#message').html('Player ' + store.tag + ' wins by getting 3 in a Column!')
     return true
   } else if (checkDia(board)) {
-    $('#message').html('Player ' + store.tag + ' gets a Diagonal win!')
+    $('#message').html('Player ' + store.tag + ' wins by getting 3 in a Diagonal')
     return true
   } else if (checkDraw(board)) {
-    $('#message').html('You tied trying!')
+    $('#message').html('There was an attempt to tic-tac-toe, but you both tied trying!')
+    return true
   }
   return false
 }
@@ -100,7 +102,7 @@ const gameBoard = function (event) {
   const player = store.board.game.player_x.email
   const winState = store.board.game.over
   if (winState) {
-    $('#message').html('The game is over')
+    $('#message').html('The game is over.')
   } else if (store.tag === 'X' && event.target.innerHTML === '') {
     event.target.innerHTML = store.tag
     board[event.target.id] = store.tag
@@ -110,7 +112,7 @@ const gameBoard = function (event) {
   }
   console.log('board is', board, 'player is ', player, 'id is ')
 
-  if (checkWin()) {
+  if (checkOver()) {
     store.board.game.over = true
     gameApi.play(event)
   }
