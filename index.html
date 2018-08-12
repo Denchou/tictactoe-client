@@ -3,65 +3,63 @@
     <head>
       <title>Tic-Tac-Toe by Den Chou</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
 
-      <nav>
-        <h1>Tic-Tac-Toe by Den Chou</h1>
-        <form id='sign-up' class="border col-md-2">
+      <nav class='container'>
+        <h1>Tic-Tac-Toe</h1>
+        <form id='sign-up' class="col-md-2">
         <fieldset>
           <div class='input-group'>
           <input class='form-control' type='email' name ="credentials[email]" placeholder="Email">
           <input class='form-control' type='password' name ="credentials[password]" placeholder="Password">
           <input class='form-control' type='password' name ='credentials[password_confirmation]' placeholder="Confirm Password">
-          <button type="submit" class='btn btn-xs'> Sign Up</button>
+          <button type="submit" class='btn btn-xs btn-primary btn-block'> Sign Up</button>
         </div>
         </fieldset>
       </form>
-      <form id='sign-in' class="border col-md-2">
+      <form id='sign-in' class="col-md-2">
       <fieldset>
         <input class='form-control' type='email' name ="credentials[email]" placeholder="Email">
         <input class='form-control' type='password' name ="credentials[password]" placeholder="Password">
-        <button type="submit" class='btn btn-xs'> Sign In</button>
+        <button type="submit" class='btn btn-xs btn-primary btn-block'> Sign In</button>
       </fieldset>
     </form>
-    <form id='sign-out' class="border col-md-2">
+    <form id='new-game' class="col-md-2">
     <fieldset>
-      <button type="submit" class='btn btn-xs'> Sign Out</button>
+      <button type="submit" class='btn btn-xs btn-primary btn-block'>Start New Game</button>
+    </fieldset>
+    </form>
+    <form id='game-stats' class="col-md-2">
+    <fieldset>
+      <button type="submit" class='btn btn-xs btn-primary btn-block'>Check Game Stats</button>
+    </fieldset>
+    </form>
+    <form id='sign-out' class="col-md-2">
+    <fieldset>
+      <button type="submit" class='btn btn-xs btn-primary btn-block'> Sign Out</button>
     </fieldset>
   </form>
-  <form id='change-password' class="border col-md-2">
+  <form id='change-password' class="col-md-2">
   <fieldset>
     <div class='input-group'>
     <input class='form-control' type='password' name ="passwords[old]" placeholder="Old Password">
     <input class='form-control' type='password' name ='passwords[new]' placeholder="New Password">
-    <button type="submit" class='btn btn-xs'>Change Password</button>
+    <button type="submit" class='btn btn-xs btn-primary btn-block'>Change Password</button>
   </div>
   </fieldset>
 </form>
-<form id='new-game' class="border container col-md-2">
-<fieldset>
-  <button type="submit" class='btn btn-xs'>Start New Game</button>
-</fieldset>
-</form>
-<form id='game-stats' class="border container col-md-2">
-<fieldset>
-  <button type="submit" class='btn btn-xs'>Check Game Stats</button>
-</fieldset>
-</form>
+
 
 
     </nav>
       <div id='message'></div>
-      <div id='gameboard'>
+      <div  class='container-fluid' id='gameboard'>
         <section class='container-fluid'>
         <div id ='0'class='col-sm-4 box'></div>
         <div id ='1'class='col-sm-4 box'></div>
