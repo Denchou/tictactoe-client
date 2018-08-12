@@ -20,6 +20,7 @@ nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: fixed;
 }
 h1 {
   margin-right: auto;
@@ -33,4 +34,22 @@ h1 {
    left: 50%;
    margin-top: -200px;
    margin-left: -200px;
+}
+#message {
+  font: courier;
+  font-size: 18px;
+  border: solid black 1px;
+  margin-top: 50%;
+  position: relative;
+  // display: box;
+}
+@media(max-width: 575.98px) {
+  #message {
+    margin-top: 100%;
+  }
+}
+@media(max-width: 991.98px) {
+  #message {
+    margin-top: 80%;
+  }
 }
