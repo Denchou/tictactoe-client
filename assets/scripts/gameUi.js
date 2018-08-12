@@ -1,5 +1,6 @@
 const store = require('./store')
 const gameLogic = require('./gameLogic')
+const statsFunctions = require('./statsFunctions')
 
 const onNewGameFailure = function (response) {
   $('#message').html('Something went wrong with the game, please check your internet connection.')
@@ -25,8 +26,10 @@ const onPlayFailure = function () {
 const onGameStatsSuccess = function (stats) {
   store.games = stats.games
   const complete = store.games.filter(over => over.over)
-  $('#message').html('<li>A total of ' + store.games.length + ' games have been played.</li>')
-  $('#message').append('<li>A total of ' + complete.length + ' games have been completed.</li>')
+  const Xwins = complete.filter(win => statsFunctions.giveWinner(win.cells) === 'X')
+  console.log('Xwins is', Xwins, 'Complete is ', complete)
+  $('#message').html('<li>A total of ' + store.games.length + ' games have been created.</li>')
+  $('#message').append('<li>Out of ' + complete.length + ' completed games, Player X won ' + Xwins.length + ' while Player O won ' + (complete.length - Xwins.length) + '.</li>')
   $('#message').append('<li>You have ' + (store.games.length - complete.length) + ' unfinished games.</li>')
   console.log(store.games)
 }

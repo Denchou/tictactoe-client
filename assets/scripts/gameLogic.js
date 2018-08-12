@@ -75,16 +75,16 @@ const checkOver = function () {
     $('#message').html('Game is over, please start a new game.')
   } else if (checkRow(board)) {
     $('#message').html('Player ' + store.tag + ' wins by getting 3 in a Row!')
-    return true
+    return store.tag
   } else if (checkCol(board)) {
     $('#message').html('Player ' + store.tag + ' wins by getting 3 in a Column!')
-    return true
+    return store.tag
   } else if (checkDia(board)) {
-    $('#message').html('Player ' + store.tag + ' wins by getting 3 in a Diagonal')
-    return true
+    $('#message').html('Player ' + store.tag + ' wins by getting 3 Diagonally!')
+    return store.tag
   } else if (checkDraw(board)) {
     $('#message').html('There was an attempt to tic-tac-toe, but you both tied trying!')
-    return true
+    return store.tag
   }
   return false
 }
@@ -120,5 +120,6 @@ const gameBoard = function (event) {
 }
 
 module.exports = {
-  gameBoard
+  gameBoard,
+  checkOver
 }
