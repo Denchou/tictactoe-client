@@ -1,8 +1,9 @@
 const store = require('./store')
 const gameApi = require('./gameApi')
+// algorithm for the game engine
 
+// returns true if there is a row win otherwise return false
 const checkRow = function () {
-  // check to see if there's a row winning combination
   const board = store.board.game.cells
   if (board[0] !== '' &&
       (board[0] === board[1] &&
@@ -19,6 +20,7 @@ const checkRow = function () {
   }
   return false
 }
+// returns true if there is a column win otherwise return false
 const checkCol = function () {
   const board = store.board.game.cells
   if (board[0] !== '' &&
@@ -36,8 +38,8 @@ const checkCol = function () {
   }
   return false
 }
+// returns true if there is a diagonal win otherwise return false
 const checkDia = function () {
-  // check to see if there's a diagonal winning combination
   const board = store.board.game.cells
   if (board[0] !== '' &&
       (board[0] === board[4] &&
@@ -50,9 +52,8 @@ const checkDia = function () {
   }
   return false
 }
-
+// returns true if there is a draw, otherwise return false
 const checkDraw = function () {
-  // check to see if the game will end in a draw
   const board = store.board.game.cells
   let count = 0
   for (let i = 0; i < board.length; i++) {
@@ -65,10 +66,9 @@ const checkDraw = function () {
   }
   return false
 }
-
+// Checks current gameboard for any winning or draw combination and returns true
+// Otherwise returns false
 const checkOver = function () {
-  // check to see if there is a winning combination
-  // If a player wins or draw, returns true
   const board = store.board.game.cells
   const isOver = store.board.game.over
   if (isOver) {
@@ -88,7 +88,7 @@ const checkOver = function () {
   }
   return false
 }
-
+// switches player between X and O
 const switchPlayer = function () {
   if (store.tag === 'X') {
     store.tag = 'O'
@@ -96,10 +96,12 @@ const switchPlayer = function () {
     store.tag = 'X'
   }
 }
-// board is array of 9 objects
+// This function takes in the current user's action and displays the mark on
+// the board, also checks to see if there is any winning combination. If there
+// is no winner, then it switch players and continues the game until the game
+// ends. Updates API accordingly
 const gameBoard = function (event) {
   const board = store.board.game.cells
-  const player = store.board.game.player_x.email
   const winState = store.board.game.over
   if (winState) {
     $('#message').html('The game is over.')
@@ -110,7 +112,6 @@ const gameBoard = function (event) {
     event.target.innerHTML = store.tag
     board[event.target.id] = store.tag
   }
-  console.log('board is', board, 'player is ', player, 'id is ')
 
   if (checkOver()) {
     store.board.game.over = true

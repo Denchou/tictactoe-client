@@ -1,6 +1,6 @@
 const config = require('./config')
 const store = require('./store')
-
+// handles api call for game events
 const newGame = function (data) {
   return $.ajax({
     url: config.apiUrl + '/games',
@@ -11,9 +11,8 @@ const newGame = function (data) {
     data: data
   })
 }
-
+// api call when user plays a box
 const play = function (event) {
-  console.log('API:', event.target.id, 'over is', store.board.game.over, store.tag)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.board.game.id,
     method: 'PATCH',
@@ -31,6 +30,7 @@ const play = function (event) {
     }
   })
 }
+// api call for game stats
 const gameStats = function () {
   return $.ajax({
     url: config.apiUrl + '/games',
