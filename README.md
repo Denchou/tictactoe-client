@@ -2,11 +2,12 @@ A game of Tic-Tac-Toe
 
 Created with:
 
-Javascript
-HTML5
-CSS
-AJax
-JQuery
+- Javascript
+- HTML5
+- CSS
+- AJax
+- JQuery
+
 
 Preliminary wireframes here:
 https://imgur.com/a/URJp27x
