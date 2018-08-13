@@ -9,6 +9,7 @@ AJax
 JQuery
 
 Preliminary wireframes here:
+https://imgur.com/a/URJp27x
 
 User stories:
 I am a user and I want to create an account so I click on Sign Up to input my Email, Password and Password Confirmation to sign up.
