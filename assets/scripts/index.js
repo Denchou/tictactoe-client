@@ -13,6 +13,7 @@ $(() => {
   $('#gameboard').hide()
   $('#new-game').hide()
   $('#game-stats').hide()
+  $('.pw').hide()
   gameHandler.gameHandler()
   userHandler.userHandler()
 })

@@ -11,55 +11,66 @@
     </head>
     <body>
 
-      <nav class='container'>
+      <header>
         <h1>Tic-Tac-Toe</h1>
+      </header>
+<button class="btn btn-primary sign" type="button" data-toggle="collapse" data-target="#collapseSignUp" aria-expanded="false" aria-controls="collapseSignUp">
+Sign Up</button>
 
-        <form id='sign-up' class="col-xs-2">
-        <fieldset>
-          <div class='input-group'>
-          <input class='form-control' type='email' name ="credentials[email]" placeholder="Email">
-          <input class='form-control' type='password' name ="credentials[password]" placeholder="Password">
-          <input class='form-control' type='password' name ='credentials[password_confirmation]' placeholder="Confirm Password">
-          <button type="submit" class='btn btn-xs btn-primary btn-block'> Sign Up</button>
-        </div>
-        </fieldset>
-      </form>
-      <form id='sign-in' class="col-xs-2">
-      <fieldset>
-        <input class='form-control' type='email' name ="credentials[email]" placeholder="Email">
-        <input class='form-control' type='password' name ="credentials[password]" placeholder="Password">
-        <button type="submit" class='btn btn-xs btn-primary btn-block'> Sign In</button>
-      </fieldset>
+<button class="btn btn-primary sign" type="button" data-toggle="collapse" data-target="#collapseSignIn" aria-expanded="false" aria-controls="collapseSignIn">
+Sign In</button>
+<div class="collapse landpage" id="collapseSignIn">
+<div class="">
+      <form id='sign-in'>
+
+        <input type='email' name ="credentials[email]" placeholder="Email">
+        <input type='password' name ="credentials[password]" placeholder="Password">
+        <button type="submit" class='btn btn-primary'>Submit</button>
+
     </form>
-    <form id='new-game' class="col-xs-2">
+  </div>
+  </div>
+  <div class="collapse landpage" id="collapseSignUp">
+  <div class="">
+    <form id='sign-up'>
+              <input type='email' name ="credentials[email]" placeholder="Email">
+              <input type='password' name ="credentials[password]" placeholder="Password">
+              <input type='password' name ='credentials[password_confirmation]' placeholder="Confirm Password">
+              <button type="submit" class='btn btn-primary'>Submit</button>
+          </form>
+  </div>
+  </div>
+    <form id='new-game'>
     <fieldset>
-      <button type="submit" class='btn btn-xs btn-primary btn-block'>Start New Game</button>
+      <button type="submit" class='btn btn btn-primary'>Start New Game</button>
     </fieldset>
     </form>
-    <form id='game-stats' class="col-xs-2">
+    <form id='game-stats'>
     <fieldset>
-      <button type="submit" class='btn btn-xs btn-primary btn-block'>Check Game Stats</button>
+      <button type="submit" class='btn btn btn-primary'>Check Game Stats</button>
     </fieldset>
     </form>
-    <form id='sign-out' class="col-xs-2">
+    <form id='sign-out'>
     <fieldset>
-      <button type="submit" class='btn btn-xs btn-primary btn-block'> Sign Out</button>
+      <button type="submit" class='btn btn btn-primary'> Sign Out</button>
     </fieldset>
   </form>
-  <form id='change-password' class="col-xs-2">
-  <fieldset>
-    <div class='input-group'>
-    <input class='form-control' type='password' name ="passwords[old]" placeholder="Old Password">
-    <input class='form-control' type='password' name ='passwords[new]' placeholder="New Password">
-    <button type="submit" class='btn btn-xs btn-primary btn-block'>Change Password</button>
-  </div>
-  </fieldset>
+  <button class="btn btn-primary pw" type="button" data-toggle="collapse" data-target="#collapsePW" aria-expanded="false" aria-controls="collapsePW">
+  Change Password</button>
+  <div class="collapse" id="collapsePW">
+    <div>
+  <form id='change-password'>
+    <input type='password' name ="passwords[old]" placeholder="Old Password">
+    <input type='password' name ='passwords[new]' placeholder="New Password">
+    <button type="submit" class='btn btn btn-primary'>Submit</button>
 </form>
-</nav>
+</div>
+</div>
 
 
 
-      <div  class='container-fluid' id='gameboard'>
+<div class="gameboard">
+      <div  class='container' id='gameboard'>
         <section class='container-fluid'>
         <div id ='0'class='col-xs-4 box'></div>
         <div id ='1'class='col-xs-4 box'></div>
@@ -77,5 +88,6 @@
       </section>
     </div>
       <div id='message' class='container-flex col-xs-12'>Welcome!</div>
+</div>
     </body>
 </html>

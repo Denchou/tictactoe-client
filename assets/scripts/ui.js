@@ -3,6 +3,7 @@ const store = require('./store')
 const onSignUpSuccess = function () {
   $('#sign-up').trigger('reset')
   $('#message').html('Congratulations! Your account has been successfully created. Please sign in to play.')
+  $('.collapse').collapse('hide')
   // $('#sign-up').hide()
   // $('#sign-in').hide()
   // $('#sign-out').show()
@@ -17,12 +18,13 @@ const onSignUpFailure = function () {
 const onSignInSuccess = function (response) {
   $('#sign-in').trigger('reset')
   $('#message').html('WELCOME! Click on Start New Game or Check Game Stats!')
-  $('#sign-up').hide()
-  $('#sign-in').hide()
+  $('.sign').hide()
   $('#sign-out').show()
   $('#change-password').show()
+  $('.pw').show()
   $('#new-game').show()
   $('#game-stats').show()
+  $('.landpage').collapse('hide')
   store.user = response.user
 }
 const onSignInFailure = function () {
@@ -33,13 +35,14 @@ const onSignInFailure = function () {
 }
 const onSignOutSuccess = function () {
   $('#message').html('Thank you for playing! Goodbye!')
-  $('#sign-in').show()
-  $('#sign-up').show()
+  $('.sign').show()
   $('#sign-out').hide()
   $('#change-password').hide()
   $('#new-game').hide()
   $('#gameboard').hide()
   $('#game-stats').hide()
+  $('.collapse').collapse('hide')
+  $('.pw').hide()
 }
 const onSignOutFailure = function () {
   $('#message').html('Something went wrong, please check your internet connection.')
@@ -47,6 +50,7 @@ const onSignOutFailure = function () {
 }
 const onChangePasswordSuccess = function () {
   $('#change-password').trigger('reset')
+  $('.collapse').collapse('hide')
   $('#message').html('Your password is now updated!')
 }
 const onChangePasswordFailure = function () {
