@@ -30,8 +30,15 @@ const onGameStats = function (event) {
     .then(gameUi.onGameStatsSuccess)
     .catch(gameUi.onGameStatsFailure)
 }
+const onReplay = function (event) {
+  event.preventDefault()
+  gameApi.replay(event)
+    .then(gameUi.onReplaySuccess)
+    .catch(gameUi.onReplayFailure)
+}
 module.exports = {
   onNewGame,
   onPlay,
-  onGameStats
+  onGameStats,
+  onReplay
 }

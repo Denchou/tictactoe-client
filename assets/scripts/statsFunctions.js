@@ -71,6 +71,24 @@ const giveWinner = function (board) {
   return false
 }
 
+const countX = function (board) {
+  const count = board.filter(x => x === 'X')
+  return count.length
+}
+
+const countO = function (board) {
+  const count = board.filter(o => o === 'O')
+  return count.length
+}
+
+const populate = function (board) {
+  for (let i = 0; i < board.length; i++) {
+    $(`#${i}`).html(board[i])
+  }
+}
 module.exports = {
-  giveWinner
+  giveWinner,
+  countX,
+  countO,
+  populate
 }
