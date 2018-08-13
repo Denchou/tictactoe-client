@@ -4,6 +4,7 @@ function gameHandler () {
   $('.box').on('click', gameEvent.onPlay)
   $('#new-game').on('submit', gameEvent.onNewGame)
   $('#game-stats').on('submit', gameEvent.onGameStats)
+  $('#message').on('click', gameEvent.onReplay)
 }
 
 module.exports = {

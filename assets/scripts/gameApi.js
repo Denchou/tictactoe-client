@@ -40,9 +40,19 @@ const gameStats = function () {
     }
   })
 }
+const replay = function (event) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + event.target.id,
+    method: 'GET',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   newGame,
   play,
-  gameStats
+  gameStats,
+  replay
 }
