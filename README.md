@@ -26,5 +26,5 @@ Planning:
 3) Create HTML buttons and doohickies until it does it's minimal job.
 4) Create event listeners, handlers until it works.
 5) Set up communications to API until it works.
-6) Refactor all my codes and reformat my game logic to match API's requirements. Hit an issue with circular dependancies. Ouch. Refactored again until it works.
+6) Refactor all my codes and reformat my game logic to match API's requirements. Hit an issue with circular dependencies. Ouch. Refactored again until it works.
 7) On successful MVP, created new "improvements" branch to add new features. Created various improvements to UI and UX with more detailed responsive messages and mobile friendly design.
