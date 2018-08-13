@@ -1,5 +1,6 @@
 const store = require('./store')
 const gameApi = require('./gameApi')
+const config = require('./config')
 // algorithm for the game engine
 
 // returns true if there is a row win otherwise return false
@@ -75,16 +76,16 @@ const checkOver = function () {
     $('#message').html('Game is over, please start a new game.')
   } else if (checkRow(board)) {
     $('#message').html('Player ' + store.tag + ' wins by getting 3 in a Row!')
-    return store.tag
+    return true
   } else if (checkCol(board)) {
     $('#message').html('Player ' + store.tag + ' wins by getting 3 in a Column!')
-    return store.tag
+    return true
   } else if (checkDia(board)) {
     $('#message').html('Player ' + store.tag + ' wins by getting 3 Diagonally!')
-    return store.tag
+    return true
   } else if (checkDraw(board)) {
     $('#message').html('There was an attempt to tic-tac-toe, but you both tied trying!')
-    return store.tag
+    return true
   }
   return false
 }
@@ -115,7 +116,27 @@ const gameBoard = function (event) {
 
   if (checkOver()) {
     store.board.game.over = true
-    gameApi.play(event)
+    if (store.buggedGame) {
+      $.ajax({
+        url: config.apiUrl + '/games/' + store.board.game.id,
+        method: 'PATCH',
+        headers: {
+          'Authorization': 'Token token=' + store.user.token
+        },
+        data: {
+          'game': {
+            'cell': {
+              'index': null,
+              'value': null
+            },
+            'over': store.board.game.over
+          }
+        }
+      })
+      store.buggedGame = false
+    } else {
+      gameApi.play(event)
+    }
   }
   switchPlayer()
 }

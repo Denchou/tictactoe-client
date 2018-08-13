@@ -55,6 +55,7 @@ const onGameStatsFailure = function () {
   $('#message').html('Something went wrong with the game, please refresh your browser.')
 }
 const onReplaySuccess = function (response) {
+  store.buggedGame = false
   if (statsFunctions.countX(response.game.cells) === statsFunctions.countO(response.game.cells)) {
     store.tag = 'X'
   } else {
@@ -65,8 +66,9 @@ const onReplaySuccess = function (response) {
   statsFunctions.populate(response.game.cells)
   $('#message').html("Replaying an old game! It is player's " + store.tag + ' turn!')
   if (statsFunctions.giveWinner(response.game.cells)) {
-    $('#message').html(statsFunctions.giveWinner(response.game.cells) + ' has already won this game. Clearly someone did not update the API!')
+    $('#message').html('The API was not updated properly for this game. Let me fix this for you. The game point went to: ' + statsFunctions.giveWinner(response.game.cells))
     store.board.game.over = true
+    store.buggedGame = true
     // FFS!!! let me fix this for your
     $.ajax({
       url: config.apiUrl + '/games/' + store.board.game.id,
