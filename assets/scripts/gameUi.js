@@ -11,7 +11,6 @@ const onNewGameSuccess = function (response) {
   $('#message').html('Time to play Tic Tac Toe or Tie trying!')
   $('.box').empty()
   $('#gameboard').show()
-  console.log(response)
   store.board = response
   store.tag = 'X'
 }
@@ -34,10 +33,6 @@ const onGameStatsSuccess = function (stats) {
   const complete = store.games.filter(over => over.over)
   const incomplete = store.games.filter(over => !(over.over))
   incomplete.sort(function (a, b) { return a.id - b.id })
-<<<<<<< HEAD
-  console.log(incomplete)
-=======
->>>>>>> improvements
   const Xwins = complete.filter(win => statsFunctions.giveWinner(win.cells) === 'X')
   const Owins = complete.filter(win => statsFunctions.giveWinner(win.cells) === 'O')
   $('#message').html('<li>A total of ' + store.games.length + ' games have been created.</li>')
