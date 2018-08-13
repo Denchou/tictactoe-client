@@ -21,10 +21,10 @@ I am a user and I am logged in and I want to check my game stats so I click on C
 I am a user and I am logged in and I want to log out so I click on Log Out.
 
 Planning:
-1) lots of caffeine and sugar
-2) Created Game logic
-3) Create HTML buttons and doohickies
-4) Create event listeners, handlers
-5) Set up communications to API
-6) Refactor all my code and reformat my game logic to match API's requirements
+1) Loads of caffeine and sugar
+2) Created Game logic until it works.
+3) Create HTML buttons and doohickies until it does it's minimal job.
+4) Create event listeners, handlers until it works.
+5) Set up communications to API until it works.
+6) Refactor all my codes and reformat my game logic to match API's requirements. Hit an issue with circular dependancies. Ouch. Refactored again until it works.
 7) On successful MVP, created new "improvements" branch to add new features. Created various improvements to UI and UX with more detailed responsive messages and mobile friendly design.
