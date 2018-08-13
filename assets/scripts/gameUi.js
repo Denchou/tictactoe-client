@@ -47,6 +47,9 @@ const onGameStatsSuccess = function (stats) {
     for (let i = 0; i < incomplete.length; i++) {
       const id = incomplete[i].id
       $('#message').append(`<button type='submit' id='${id}'>${i + 1}</button>`)
+      if ((i + 1) % 14 === 0) {
+        $('#message').append('<br>')
+      }
     }
   }
 }
