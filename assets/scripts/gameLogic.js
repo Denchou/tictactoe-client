@@ -85,7 +85,7 @@ const checkOver = function () {
     return true
   } else if (checkDraw(board)) {
     $('#message').html('There was an attempt to tic-tac-toe, but you both tied trying!')
-    const audio = new Audio('https://github.com/Denchou/tictactoe-client/blob/master/public/Draw.m4a')
+    const audio = new Audio('https://raw.githubusercontent.com/Denchou/tictactoe-client/blob/master/public/Draw.m4a')
     audio.play()
     $('.box').addClass('tie')
     return true
