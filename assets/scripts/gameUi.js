@@ -9,7 +9,8 @@ const onNewGameFailure = function (response) {
 
 const onNewGameSuccess = function (response) {
   $('#message').html('Time to play Tic Tac Toe or Tie trying!')
-  $('.box').empty().removeClass('x o')
+  $('.box').empty().removeClass('x o diagwin colwin rowwin')
+  $('#gameboard').removeClass('tie')
   $('#gameboard').show()
   store.board = response
   store.tag = 'X'
@@ -56,6 +57,8 @@ const onGameStatsFailure = function () {
   $('#message').html('Something went wrong with the game, please refresh your browser.')
 }
 const onReplaySuccess = function (response) {
+  $('.box').empty().removeClass('x o diagwin colwin rowwin')
+  $('#gameboard').removeClass('tie')
   store.buggedGame = false
   if (statsFunctions.countX(response.game.cells) === statsFunctions.countO(response.game.cells)) {
     store.tag = 'X'
