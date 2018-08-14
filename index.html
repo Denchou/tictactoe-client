@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic-Tac-Toe by Den Chou</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+
+      <header>
+        <h1>Tic-Tac-Toe</h1>
+      </header>
+<button class="btn btn-primary sign" type="button" data-toggle="collapse" data-target="#collapseSignUp" aria-expanded="false" aria-controls="collapseSignUp">
+Sign Up</button>
+
+<button class="btn btn-primary sign" type="button" data-toggle="collapse" data-target="#collapseSignIn" aria-expanded="false" aria-controls="collapseSignIn">
+Sign In</button>
+<div class="collapse landpage" id="collapseSignIn">
+<div class="">
+      <form id='sign-in'>
+
+        <input type='email' name ="credentials[email]" placeholder="Email">
+        <input type='password' name ="credentials[password]" placeholder="Password">
+        <button type="submit" class='btn btn-primary'>Submit</button>
+
+    </form>
+  </div>
+  </div>
+  <div class="collapse landpage" id="collapseSignUp">
+  <div class="">
+    <form id='sign-up'>
+              <input type='email' name ="credentials[email]" placeholder="Email">
+              <input type='password' name ="credentials[password]" placeholder="Password">
+              <input type='password' name ='credentials[password_confirmation]' placeholder="Confirm Password">
+              <button type="submit" class='btn btn-primary'>Submit</button>
+          </form>
+  </div>
+  </div>
+    <form id='new-game'>
+    <fieldset>
+      <button type="submit" class='btn btn btn-primary'>Start New Game</button>
+    </fieldset>
+    </form>
+    <form id='game-stats'>
+    <fieldset>
+      <button type="submit" class='btn btn btn-primary'>Check Game Stats</button>
+    </fieldset>
+    </form>
+    <form id='sign-out'>
+    <fieldset>
+      <button type="submit" class='btn btn btn-primary'> Sign Out</button>
+    </fieldset>
+  </form>
+  <button class="btn btn-primary pw" type="button" data-toggle="collapse" data-target="#collapsePW" aria-expanded="false" aria-controls="collapsePW">
+  Change Password</button>
+  <div class="collapse" id="collapsePW">
+    <div>
+  <form id='change-password'>
+    <input type='password' name ="passwords[old]" placeholder="Old Password">
+    <input type='password' name ='passwords[new]' placeholder="New Password">
+    <button type="submit" class='btn btn btn-primary'>Submit</button>
+</form>
+</div>
+</div>
+
+
+
+<div class="gameboard">
+      <div  class='container' id='gameboard'>
+        <section class='container-fluid'>
+        <div id ='0'class='col-xs-4 box'></div>
+        <div id ='1'class='col-xs-4 box'></div>
+        <div id ='2'class='col-xs-4 box'></div>
+      </section>
+      <section class='container-fluid'>
+        <div id ='3'class='col-xs-4 box'></div>
+        <div id ='4'class='col-xs-4 box'></div>
+        <div id ='5'class='col-xs-4 box'></div>
+      </section>
+      <section class='container-fluid'>
+        <div id ='6'class='col-xs-4 box'></div>
+        <div id ='7'class='col-xs-4 box'></div>
+        <div id ='8'class='col-xs-4 box'></div>
+      </section>
+    </div>
+      <div id='message' class='message container-flex col-xs-12'></div>
+</div>
+
+    </body>
+</html>
