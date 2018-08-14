@@ -9,7 +9,7 @@ const onNewGameFailure = function (response) {
 
 const onNewGameSuccess = function (response) {
   $('#message').html('Time to play Tic Tac Toe or Tie trying!')
-  $('.box').empty()
+  $('.box').empty().removeClass('x o')
   $('#gameboard').show()
   store.board = response
   store.tag = 'X'

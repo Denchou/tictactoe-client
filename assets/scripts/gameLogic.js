@@ -107,15 +107,18 @@ const gameBoard = function (event) {
   if (winState) {
     $('#message').html('The game is over.')
   } else if (store.tag === 'X' && event.target.innerHTML === '') {
+    $(`#${event.target.id}`).addClass('x')
     event.target.innerHTML = store.tag
     board[event.target.id] = store.tag
   } else if (event.target.innerHTML === '') {
+    $(`#${event.target.id}`).addClass('o')
     event.target.innerHTML = store.tag
     board[event.target.id] = store.tag
   }
 
   if (checkOver()) {
     store.board.game.over = true
+    $('.box').removeClass('x o')
     if (store.buggedGame) {
       $.ajax({
         url: config.apiUrl + '/games/' + store.board.game.id,
