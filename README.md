@@ -1,4 +1,4 @@
-A game of Tic-Tac-Toe 
+A game of Tic-Tac-Toe
 
 Created with:
 
@@ -30,3 +30,8 @@ Planning:
 6) Set up communications to API until it works.
 7) Refactor all my codes and reformat my game logic to match API's requirements. Hit an issue with circular dependencies. Ouch. Refactored again until it works.
 8) On successful MVP, created new "improvements" branch to add new features. Created various improvements to UI and UX with more detailed responsive messages and mobile friendly design.
+
+Unsolved bugs that will be fixed in future iterations:
+- Player X does not get credit for a win when a game is replayed from previous games.
+- messages doesn't wrap when screen is minimized to mobile width. Text currently goes off screen.
+- On mobile, drop-down menu from browser's autofill pushes messages up, off-screen.
